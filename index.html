@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+<!-- Partially adapted from https://codepen.io/anon/pen/ZKqvLr with modification -->
+<head>
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<style>
+
+body {
+  background-image: url("ep_naturalblack.png");
+  background-repeat: repeat;
+}
+
+.title {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  text-transform: : uppercase;
+
+  color: #DDD;
+  height: 60px;
+  line-height: 60px;
+  font-size: 50px;
+}
+
+.ftq_full {
+  font-family: 'Lato', sans-serif;
+  height: 60px;
+  overflow: hidden;
+  margin: 100px auto 20px;
+}
+
+.ftq_full h2 {
+  color: #DDD;
+  margin: 0;
+
+  height: 60px;
+  line-height: 60px;
+  font-size: 50px;
+  
+
+  text-align: center;
+  text-transform: uppercase;
+  transition: margin-top .3s ease;
+}
+.spacer_line {
+  width: 150px;
+  height: 2px;
+  margin: 12px auto;
+  background-color: #303030;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  line-height: 26px;
+  color: #776666;
+  font-size: 18px;
+}
+
+
+</style>
+<body>
+
+  <div class="ftq_full">
+    <h2>Find the Question</h2>
+    <h2>Forge the Quark</h2>
+    <h2>Face the Quest</h2>
+    <h2>Follow the Question</h2>
+    <h2>First Time Quality</h2>
+    <h2>Fail to Quote</h2>
+  </div>
+
+  <div class="spacer_line"></div>
+  <p>We make games.</p>
+
+<!-- Jquery add in -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+  // Tweakables
+  var duration = 3500; 
+  var start = 1;
+
+  // Internal vars
+  var current = start;
+  var slideSection = $(".ftq_full");
+  var div_height = slideSection.height();
+  var number = slideSection.children().length;
+  var first = slideSection.children().first();
+
+  // Operate per-inteval
+  setInterval(function() {
+    var interv = current * -1 * div_height;
+    first.css("margin-top", interv + "px");
+    if (current == number) {
+      first.css("margin-top", "0px");
+      current = 1;
+    } else {
+      current = Math.floor((Math.random() * 1000) % num_ftq_options) + 1;
+    }
+  }, duration);
+})(jQuery);
+</script>
+</body>
+</html>
