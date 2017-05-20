@@ -5,12 +5,13 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=.65">
   <title>FTQ Games</title>
+  <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <style>
 
 body {
-  background-image: url("Media/ep_naturalblack.jpg");
+  background-image: url("/resources/images/ep_naturalblack.jpg");
   background-repeat: repeat;
 }
 
@@ -45,6 +46,8 @@ body {
   text-transform: uppercase;
   transition: margin-top .3s ease;
 }
+
+/* Small line below rotating text */
 .spacer_line {
   width: 150px;
   height: 2px;
@@ -52,18 +55,42 @@ body {
   background-color: #303038;
 }
 
+
+/* Social media and other links */
+.social_media {
+  font-family: monospace;
+  text-align: center;
+  line-height: 26px;
+  color: #666677;
+  font-size: 24px;
+}
+
+a:link {
+  text-decoration: none;
+  color: #666677;
+}
+a:visited {
+  text-decoration: none;
+  color: #666677;
+}
+a:hover {
+    color: #777788;
+}
+
+
 p {
   font-family: 'Lato', sans-serif;
   text-align: center;
   line-height: 26px;
-  color: #776666;
+  color: #666677;
   font-size: 24px;
 }
 
 
 </style>
 <body>
-
+  
+  <!-- Cycling FTQ acronym -->
   <div class="ftq_full">
     <h2>Find the Question</h2>
     <h2>Forge the Quark</h2>
@@ -73,36 +100,45 @@ p {
     <h2>Fail to Quote</h2>
   </div>
 
+  <!-- Description Line -->
   <div class="spacer_line"></div>
   <p>We make games. Soon.</p>
 
-<!-- Jquery add in -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-(function($) {
-  // Tweakables
-  var duration = 3500; 
-  var start = 1;
+  <!-- Social media links -->
+  <div class="social_media">
+  <a href="blog.ftqgames.com"><i class="fa fa-tumblr fa-2x" aria-hidden="true"></i></a>
+  <a href="https://twitter.com/ftqgames"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+  <a href="https://www.facebook.com/FTQGames/"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+  <a href="https://www.instagram.com/ftqgames/"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+  </div>
 
-  // Internal vars
-  var current = start;
-  var slideSection = $(".ftq_full");
-  var div_height = slideSection.height();
-  var number = slideSection.children().length;
-  var first = slideSection.children().first();
+  <!-- Jquery add-in, and functions -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  (function($) {
+    // Tweakables
+    var duration = 3500; 
+    var start = 1;
 
-  // Operate per-inteval
-  setInterval(function() {
-    var interv = current * -1 * div_height;
-    first.css("margin-top", interv + "px");
-    if (current == number) {
-      first.css("margin-top", "0px");
-      current = 1;
-    } else {
-      current++;
-    }
-  }, duration);
-})(jQuery);
-</script>
+    // Internal vars
+    var current = start;
+    var slideSection = $(".ftq_full");
+    var div_height = slideSection.height();
+    var number = slideSection.children().length;
+    var first = slideSection.children().first();
+
+    // Operate per-inteval
+    setInterval(function() {
+      var interv = current * -1 * div_height;
+      first.css("margin-top", interv + "px");
+      if (current == number) {
+        first.css("margin-top", "0px");
+        current = 1;
+      } else {
+        current++;
+      }
+    }, duration);
+  })(jQuery);
+  </script>
 </body>
 </html>
